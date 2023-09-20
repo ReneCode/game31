@@ -14,7 +14,7 @@ const Message = dynamic(() => import("./components/Message"), { ssr: false });
 const options = { authUrl: "/api/gettoken" };
 
 // https://faqs.ably.com/40104-timestamp-not-current
-export const revalidate = 0;
+// export const revalidate = 0;
 
 export default function Home() {
   return (

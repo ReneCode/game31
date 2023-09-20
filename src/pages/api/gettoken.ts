@@ -2,10 +2,11 @@ import type { NextApiRequest, NextApiResponse } from "next";
 
 import Ably from "ably/promises";
 
-type ResponseData = {
-  message: string;
-};
-
+//
+// use the old pages router
+// with the new app router there are strage errors on connecting to ably
+// https://faqs.ably.com/40104-timestamp-not-current
+//
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const CLIENT_ID = process.env.ABLY_CLIENT_ID || "";
   const API_KEY = process.env.ABLY_API_KEY || "";
@@ -20,8 +21,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   });
 
   res.status(200).json(tokenRequestData);
-
-  // return NextResponse.json(tokenRequestData);
 };
 
 export default handler;
