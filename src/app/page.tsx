@@ -1,26 +1,17 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import styles from "./page.module.css";
 import { AblyProvider } from "ably/react";
 
-import Message from "./components/Message";
-
-// https://github.com/ably-labs/react-hooks/issues/8
-// https://ably.com/blog/realtime-chat-app-nextjs-vercel
-
-// const Message = dynamic(() => import("./components/Message"), { ssr: false });
+import CollectUser from "./components/CollectUser";
 
 const options = { authUrl: "/api/gettoken" };
-
-// https://faqs.ably.com/40104-timestamp-not-current
-// export const revalidate = 0;
 
 export default function Home() {
   return (
     <AblyProvider options={options}>
       <main className={styles.main}>
-        <Message></Message>
+        <CollectUser></CollectUser>
       </main>
     </AblyProvider>
   );
